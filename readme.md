@@ -3,7 +3,7 @@
 ![License](https://img.shields.io/github/license/vrallis/E-Course-Folder-Expander)
 ![GitHub last commit](https://img.shields.io/github/last-commit/vrallis/E-Course-Folder-Expander)
 ![Issues](https://img.shields.io/github/issues/vrallis/E-Course-Folder-Expander)
-[![Buy me a coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-donate-yellow?style=flat&logo=buy-me-a-coffee)](buymeacoffee.com/vrallis)
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-donate-yellow?style=flat&logo=buy-me-a-coffee)](https://buymeacoffee.com/vrallis)
 
 <!-- 
 ### Chrome Web Store Version
