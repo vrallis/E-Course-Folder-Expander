@@ -1,8 +1,8 @@
 {
     "manifest_version": 3,
-    "name": "Moodle Folder Expander",
+    "name": "ECourse Folder Expander",
     "version": "1.0",
-    "description": "Expands Moodle folders inline without opening a new tab.",
+    "description": "Expand Folder Functionality For ECourse",
     "permissions": ["activeTab"],
     "content_scripts": [
       {
