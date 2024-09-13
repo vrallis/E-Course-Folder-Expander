@@ -18,10 +18,19 @@
     }
   },
   "permissions": [],
+  "host_permissions": [
+    "https://ecourse.uoi.gr/*"
+  ],
   "content_scripts": [
     {
       "matches": ["https://ecourse.uoi.gr/*"],
       "js": ["content.js"]
     }
-  ]
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "ecourse-expander@bill.gr",
+      "strict_min_version": "109.0"
+    }
+  }
 }

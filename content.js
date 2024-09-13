@@ -49,7 +49,7 @@ document.querySelectorAll('.activity.folder.modtype_folder').forEach(folder => {
     // Simulate the referrer as the current page
     const referrerUrl = window.location.href;
 
-    // Step 1: Fetch the folder URL
+    // Fetch the folder URL
     fetch(folderUrl, {
       credentials: 'include',
       headers: {
