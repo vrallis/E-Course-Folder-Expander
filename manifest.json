@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "E-Course Folder Expander",
     "version": "1.0",
-    "description": "Expands Folders On ECourse so you do not have to open a new tab",
+    "description": "Expands Folders On E-Course so you do not have to open a new tab",
     "permissions": ["activeTab", "webRequest", "scripting"],
     "background": {
       "service_worker": "background.js"
