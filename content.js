@@ -1,5 +1,7 @@
 // Log message to verify that the script is running
 console.log("Content script loaded");
+const loadingText = chrome.i18n.getMessage("loadingText");
+
 
 // Select all folder elements
 document.querySelectorAll('.activity.folder.modtype_folder').forEach(folder => {
@@ -32,7 +34,7 @@ document.querySelectorAll('.activity.folder.modtype_folder').forEach(folder => {
       return;
     }
 
-    console.log("Arrow clicked! Fetching folder contents...");
+    //console.log("Arrow clicked! Fetching folder contents...");
     const folderUrl = folderLink.href; // Get the folder's URL from the link
     folderContentElement = document.createElement('div'); // Create content container for the specific folder
     folderContentElement.className = 'expanded-folder-contents';
@@ -40,7 +42,7 @@ document.querySelectorAll('.activity.folder.modtype_folder').forEach(folder => {
 
     // Loading indicator
     const loadingElement = document.createElement('div');
-    loadingElement.innerHTML = 'Loading...';
+    loadingElement.innerHTML = loadingText;
     loadingElement.style.fontStyle = 'italic';
     folder.after(loadingElement);
 

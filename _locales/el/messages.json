@@ -1,0 +1,18 @@
+{
+    "extensionName": {
+      "message": "Επέκταση Φακέλου eCourse"
+    },
+    "extensionDescription": {
+      "message": "Επεκτείνει τα περιεχόμενα φακέλων στη σελίδα τou eCourse."
+    },
+    "expandButtonLabel": {
+      "message": "Άνοιγμα φακέλου"
+    },
+    "loadingText": {
+      "message": "Φόρτωση..."
+    },
+    "comingSoonMessage": {
+    "message": "Έρχεται σύντομα"
+  }
+  }
+  
