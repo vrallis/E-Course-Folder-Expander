@@ -48,5 +48,5 @@ Currently universities are supported:
 
 - **Support for more platforms and institutions**
 - **Customized options for displaying folder contents**
-- **Folder reminder**:
+- **Folder memorization**
 - **Improving the behavior of pinned folders**
