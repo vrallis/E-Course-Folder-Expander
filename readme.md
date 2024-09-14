@@ -49,4 +49,4 @@ Current universities that are supported:
 - **Support for more platforms and institutions**
 - **Customized options for displaying folder contents**
 - **Folder memorization**
-- **Improving the behavior of pinned folders**
+- **Improving the behavior of nested folders**
