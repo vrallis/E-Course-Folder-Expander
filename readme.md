@@ -35,8 +35,6 @@
 
 # E-Course Folder Expander 🇬🇧
 
----
-
 ## Description
 
 eCourse Folder Expander is a simple extension for Chromium and Firefox based browsers. It allows you to display the contents of a folder without having to open the folder in a new tab on eCourse platforms.
