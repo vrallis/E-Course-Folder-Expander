@@ -1,4 +1,4 @@
-# Επέκταση Φακέλων eCourse
+# Επέκταση Φακέλων eCourse 🇬🇷
 
 ![License](https://img.shields.io/github/license/vrallis/E-Course-Folder-Expander)
 ![GitHub last commit](https://img.shields.io/github/last-commit/vrallis/E-Course-Folder-Expander)
@@ -30,3 +30,25 @@
 - **Προσαρμοσμένες επιλογές εμφάνισης περιεχομένων φακέλου**
 - **Απομνημόνευση φακέλων**:
 - **Βελτίωση της συμπεριφοράς εμφωλευμένων φακέλων**
+
+---
+
+# E-Course Folder Expander 🇬🇧
+
+---
+
+## Description
+
+eCourse Folder Expander is a simple extension for Chromium and Firefox based browsers. It allows you to display the contents of a folder without having to open the folder in a new tab on eCourse platforms.
+Currently universities are supported:
+
+- University of Ioannina (ecourse.uoi.gr)
+
+---
+
+## Planned Updates
+
+- **Support for more platforms and institutions**
+- **Customized options for displaying folder contents**
+- **Folder reminder**:
+- **Improving the behavior of pinned folders**
