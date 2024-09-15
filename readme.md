@@ -1,7 +1,7 @@
 # Επέκταση Φακέλων eCourse 🇬🇷
 
 [![Firefox Addon Version](https://img.shields.io/amo/v/ecourse-folder-expander?label=Firefox%20Add-on)](https://addons.mozilla.org/en-US/firefox/addon/ecourse-folder-expander/)
-[![Version](https://img.shields.io/chrome-web-store/v/ecourse-folder-expander?label=Chrome%20Web%20Store)](https://chromewebstore.google.com/detail/ecourse-folder-expander/mlahmkmpbaalmggggdbohgbiihphniph)
+[![Version](https://img.shields.io/chrome-web-store/v/ecourse-folder-expander/mlahmkmpbaalmggggdbohgbiihphniph?label=Chrome%20Web%20Store)](https://chromewebstore.google.com/detail/ecourse-folder-expander/mlahmkmpbaalmggggdbohgbiihphniph)
 ![License](https://img.shields.io/github/license/vrallis/E-Course-Folder-Expander)
 ![GitHub last commit](https://img.shields.io/github/last-commit/vrallis/E-Course-Folder-Expander)
 ![Issues](https://img.shields.io/github/issues/vrallis/E-Course-Folder-Expander)
