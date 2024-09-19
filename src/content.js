@@ -2,7 +2,6 @@
 console.log("Content script loaded");
 const loadingText = chrome.i18n.getMessage("loadingText");
 
-
 // Select all folder elements
 document.querySelectorAll('.activity.folder.modtype_folder').forEach(folder => {
   
