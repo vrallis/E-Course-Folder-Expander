@@ -1,0 +1,12 @@
+{
+    "addons": {
+      "ecourse-expander@bill.gr": {
+        "updates": [
+          {
+            "version": "1.0",
+            "update_link": "https://github.com/vrallis/E-Course-Folder-Expander/releases/download/1.0/eCourse-Folder-Expander-v1.0.xpi"
+          }
+        ]
+      }
+    }
+  }
