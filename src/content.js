@@ -1,124 +1,72 @@
-// Log message to verify that the script is running
-console.log("Content script loaded");
-const loadingText = chrome.i18n.getMessage("loadingText");
+// Function to handle folder expansion
+function handleFolderExpansion(folder) {
+  const folderContainer = folder.nextElementSibling;
 
-// Select all folder elements
-document.querySelectorAll('.activity.folder.modtype_folder').forEach(folder => {
-  
-  // Get the link
-  const folderLink = folder.querySelector('a');
-  
-  // Create an arrow element
-  const arrow = document.createElement('span');
-  arrow.textContent = '▶';  // Arrow for collapsed folder
-  arrow.style.cursor = 'pointer';  // Clickable pointer indicator
-  arrow.style.marginLeft = '5px';
-  arrow.style.pointerEvents = 'auto';
-  
-  // Insert the arrow next to folder
-  folderLink.parentElement.insertBefore(arrow, folderLink.nextSibling);
-
-  // Variables to track loaded content
-  let contentLoaded = false;
-  let folderContentElement = null;
-
-  // Event listener for arrow click
-  arrow.addEventListener('click', function(event) {
-    event.preventDefault(); // Prevent default behavior
-
-    // Check if content is already loaded, if so toggle visibility
-    if (contentLoaded) {
-      folderContentElement.style.display = folderContentElement.style.display === 'none' ? 'block' : 'none';
-      arrow.textContent = folderContentElement.style.display === 'none' ? '▶' : '▼';
+  // Check if folder has already been expanded
+  if (folderContainer && folderContainer.classList.contains('expanded')) {
+      folderContainer.classList.toggle('hidden');
       return;
-    }
+  }
 
-    //console.log("Arrow clicked! Fetching folder contents...");
-    const folderUrl = folderLink.href; // Get the folder's URL from the link
-    folderContentElement = document.createElement('div'); // Create content container for the specific folder
-    folderContentElement.className = 'expanded-folder-contents';
-    folderContentElement.style.marginLeft = '20px'; // Intendent
+  // Create a loading indicator (Safe alternative to innerHTML)
+  const loadingElement = document.createElement('div');
+  loadingElement.textContent = 'Loading...';  // Use textContent for safer DOM manipulation
+  folder.after(loadingElement);
 
-    // Loading indicator
-    const loadingElement = document.createElement('div');
-    loadingElement.innerHTML = loadingText;
-    loadingElement.style.fontStyle = 'italic';
-    folder.after(loadingElement);
-
-    // Simulate the referrer as the current page
-    const referrerUrl = window.location.href;
-
-    // Fetch the folder URL
-    fetch(folderUrl, {
-      credentials: 'include',
-      headers: {
-        'Referer': referrerUrl // Simulate clicking link clicking from the current page
-      }
-    })
+  // Fetch folder contents
+  fetch(folder.getAttribute('data-url'))
       .then(response => response.text())
       .then(data => {
-        // Log the full response HTML for debugging
-        // console.log("Full response HTML received. Parsing HTML...");
+          // Remove loading indicator
+          loadingElement.remove();
 
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(data, 'text/html');
-        
-        // Remove the loading indicator once the content is fetched
-        loadingElement.remove();
+          // Create a container for the folder contents
+          const newFolderContainer = document.createElement('div');
+          newFolderContainer.classList.add('folder-container', 'expanded');
 
-        // Call the function to handle content of folder
-        handleFinalFolderContent(doc, folderContentElement, arrow, folder);
+          // Parse the response and extract the file links
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(data, 'text/html');
+          const fileLinks = doc.querySelectorAll('.ygtvitem a');
 
-        // Mark content as loaded
-        contentLoaded = true;
+          if (fileLinks.length === 0) {
+              newFolderContainer.textContent = 'No file entries found for this folder.';
+          } else {
+              fileLinks.forEach(fileLinkElement => {
+                  const fileEntry = document.createElement('div');
+                  const fileLink = fileLinkElement.getAttribute('href');
+                  const fileName = fileLinkElement.textContent;
+
+                  // Create link element safely
+                  const linkElement = document.createElement('a');
+                  linkElement.setAttribute('href', fileLink);
+                  linkElement.textContent = fileName;
+
+                  // Append link element to file entry and container
+                  fileEntry.appendChild(linkElement);
+                  newFolderContainer.appendChild(fileEntry);
+              });
+          }
+
+          // Insert the new folder contents below the folder
+          folder.after(newFolderContainer);
       })
       .catch(error => {
-        console.error('Error fetching folder content:', error);
-        // Remove the loading indicator if error
-        loadingElement.remove();
+          console.error('Error fetching folder content:', error);
+          loadingElement.remove();
+          const errorElement = document.createElement('div');
+          errorElement.textContent = 'Error loading folder contents.';
+          folder.after(errorElement);
       });
-  });
-});
-
-// Function to handle final folder content extraction and display
-function handleFinalFolderContent(doc, folderContentElement, arrow, folder) {
-  const fileEntries = doc.querySelectorAll('li .fp-filename-icon');
-  console.log("Found file entries:", fileEntries);
-
-  if (fileEntries.length > 0) {
-    console.log("Inserting folder contents...");
-    
-    // Add each file entry as a new div below the folder
-    fileEntries.forEach(entry => {
-      const fileLink = entry.querySelector('a');
-      const fileIcon = entry.querySelector('img');
-
-      // Only proceed if fileLink and fileIcon exist
-      if (fileLink && fileIcon) {
-        // Create a div to hold the file link and icon
-        const fileLinkElement = document.createElement('div');
-        fileLinkElement.style.marginLeft = '20px';
-        fileLinkElement.style.marginBottom = '10px';
-        fileLinkElement.innerHTML = `
-          <a href="${fileLink.href}" target="_blank">
-            <img src="${fileIcon.src}" alt="${fileIcon.alt}" style="vertical-align:middle; margin-right:5px;">
-            ${fileLink.textContent}
-          </a>
-        `;
-        folderContentElement.appendChild(fileLinkElement);
-      } else {
-        console.error("Error: Missing fileLink or fileIcon in entry", entry);
-      }
-    });
-
-    arrow.textContent = '▼';  // Change arrow state
-    folder.after(folderContentElement); // Insert content below the folder
-
-    console.log("Folder contents inserted successfully!");
-
-    // Remove the event listener to prevent loops
-    arrow.removeEventListener('click', arguments.callee);
-  } else {
-    console.error("No file entries found for this folder");
-  }
 }
+
+// Attach event listeners to each folder to handle expansion
+document.querySelectorAll('.activity.folder.modtype_folder').forEach(folder => {
+  const expandButton = document.createElement('button');
+  expandButton.textContent = '▼';  // Simple arrow icon for expand button
+  expandButton.style.cursor = 'pointer';  // Make it look like a clickable button
+  expandButton.addEventListener('click', function () {
+      handleFolderExpansion(folder);
+  });
+  folder.prepend(expandButton);  // Add the expand button to the folder
+});
