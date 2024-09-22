@@ -2,16 +2,16 @@
 
 # eCourse Folder Expander
 
-![License](https://img.shields.io/github/license/vrallis/ecourse-folder-expander)
-![GitHub last commit](https://img.shields.io/github/last-commit/vrallis/ecourse-folder-expander)
-![Issues](https://img.shields.io/github/issues/vrallis/ecourse-folder-expander)
+![License](https://img.shields.io/github/license/vrallis/E-Course-Folder-Expander)
+![GitHub last commit](https://img.shields.io/github/last-commit/vrallis/E-Course-Folder-Expander)
+![Issues](https://img.shields.io/github/issues/vrallis/E-Course-Folder-Expander)
 [![Buy me a coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-donate-yellow?style=flat&logo=buy-me-a-coffee)](https://www.buymeacoffee.com/yourusername)
 
 ### Firefox Version (Self-Hosted)
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/vrallis/ecourse-folder-expander?label=Firefox%20Version)](https://github.com/vrallis/ecourse-folder-expander/releases/latest)
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/vrallis/E-Course-Folder-Expander?label=Firefox%20Version)](https://github.com/vrallis/E-Course-Folder-Expander/releases/latest)
 
 ### Chrome Web Store Version
-[![Version](https://img.shields.io/chrome-web-store/v/mlahmkmpbaalmggggdbohgbiihphniph?label=Chrome%20Web%20Store)](https://chromewebstore.google.com/detail/ecourse-folder-expander/mlahmkmpbaalmggggdbohgbiihphniph)
+[![Version](https://img.shields.io/chrome-web-store/v/mlahmkmpbaalmggggdbohgbiihphniph?label=Chrome%20Web%20Store)](https://chromewebstore.google.com/detail/E-Course-Folder-Expander/mlahmkmpbaalmggggdbohgbiihphniph)
 
 
 ---
