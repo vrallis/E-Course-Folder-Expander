@@ -1,5 +1,3 @@
-# Επέκταση Φακέλων eCourse 🇬🇷
-
 # eCourse Folder Expander
 
 ![License](https://img.shields.io/github/license/vrallis/E-Course-Folder-Expander)
@@ -15,6 +13,8 @@
 
 
 ---
+
+# Επέκταση Φακέλων eCourse 🇬🇷
 
 ## Περιγραφή
 
