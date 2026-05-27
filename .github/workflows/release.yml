@@ -12,11 +12,8 @@ jobs:
       contents: write
 
     steps:
-      - name: Checkout main
+      - name: Checkout
         uses: actions/checkout@v4
-        with:
-          ref: main
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Extract version from tag
         run: echo "VERSION=${GITHUB_REF_NAME#v}" >> $GITHUB_ENV
@@ -26,21 +23,6 @@ jobs:
           cd src
           zip -r "../eCourse-Folder-Expander-v${{ env.VERSION }}.xpi" .
           zip -r "../eCourse-Folder-Expander-v${{ env.VERSION }}.zip" .
-
-      - name: Update updates.json
-        run: |
-          UPDATE_LINK="https://github.com/${{ github.repository }}/releases/download/${{ github.ref_name }}/eCourse-Folder-Expander-v${{ env.VERSION }}.xpi"
-          jq --arg version "${{ env.VERSION }}" --arg link "$UPDATE_LINK" \
-            '.addons["ecourse-expander@bill.gr"].updates += [{"version": $version, "update_link": $link}]' \
-            updates.json > tmp.json && mv tmp.json updates.json
-
-      - name: Commit updates.json
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add updates.json
-          git diff --staged --quiet || git commit -m "chore: add v${{ env.VERSION }} to updates.json [skip ci]"
-          git push origin HEAD:main
 
       - name: Create GitHub release
         uses: softprops/action-gh-release@v2
