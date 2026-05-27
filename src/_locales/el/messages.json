@@ -1,18 +1,23 @@
 {
-    "extensionName": {
-      "message": "Επέκταση Φακέλων eCourse"
-    },
-    "extensionDescription": {
-      "message": "Επεκτείνει τα περιεχόμενα φακέλων στη σελίδα τou eCourse."
-    },
-    "expandButtonLabel": {
-      "message": "Άνοιγμα φακέλου"
-    },
-    "loadingText": {
-      "message": "Φόρτωση..."
-    },
-    "comingSoonMessage": {
-    "message": "Έρχεται σύντομα"
+  "extensionName": {
+    "message": "Επέκταση Φακέλων eCourse"
+  },
+  "extensionDescription": {
+    "message": "Επεκτείνει τα περιεχόμενα φακέλων στη σελίδα τou eCourse."
+  },
+  "expandButtonLabel": {
+    "message": "Άνοιγμα φακέλου"
+  },
+  "loadingText": {
+    "message": "Φόρτωση..."
+  },
+  "noFilesMessage": {
+    "message": "Δεν βρέθηκαν αρχεία σε αυτόν τον φάκελο."
+  },
+  "errorMessage": {
+    "message": "Σφάλμα κατά τη φόρτωση του φακέλου."
+  },
+  "expandAllLabel": {
+    "message": "Επέκταση Όλων των Φακέλων"
   }
-  }
-  
+}

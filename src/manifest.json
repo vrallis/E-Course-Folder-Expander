@@ -17,7 +17,7 @@
       "128": "icons/icon-128.png"
     }
   },
-  "permissions": [],
+  "permissions": ["activeTab"],
   "host_permissions": [
     "https://ecourse.uoi.gr/*"
   ],

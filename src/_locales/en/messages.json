@@ -1,18 +1,23 @@
 {
-    "extensionName": {
-      "message": "eCourse Folder Expander"
-    },
-    "extensionDescription": {
-      "message": "Expands folder contents inline on the eCourse platform."
-    },
-    "expandButtonLabel": {
-      "message": "Expand folder"
-    },
-    "loadingText": {
-      "message": "Loading..."
-    },
-    "comingSoonMessage": {
-    "message": "Coming Soon"
+  "extensionName": {
+    "message": "eCourse Folder Expander"
+  },
+  "extensionDescription": {
+    "message": "Expands folder contents inline on the eCourse platform."
+  },
+  "expandButtonLabel": {
+    "message": "Expand folder"
+  },
+  "loadingText": {
+    "message": "Loading..."
+  },
+  "noFilesMessage": {
+    "message": "No file entries found for this folder."
+  },
+  "errorMessage": {
+    "message": "Error loading folder contents."
+  },
+  "expandAllLabel": {
+    "message": "Expand All Folders"
   }
-  }
-  
+}

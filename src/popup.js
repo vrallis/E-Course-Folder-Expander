@@ -1,15 +1,14 @@
-// Load localized text based on the browser's language
 function loadLocalizedText() {
-    const extensionName = chrome.i18n.getMessage("extensionName");
-    const comingSoonMessage = chrome.i18n.getMessage("comingSoonMessage");
-  
-    console.log("Detected Language:", chrome.i18n.getUILanguage());
-    console.log("Extension Name:", extensionName);
-    console.log("Coming Soon Message:", comingSoonMessage);
+  document.getElementById('extensionName').innerText = chrome.i18n.getMessage('extensionName');
+  document.getElementById('expandAllBtn').innerText = chrome.i18n.getMessage('expandAllLabel');
+}
 
-    document.getElementById('extensionName').innerText = extensionName;
-    document.getElementById('comingSoon').innerText = comingSoonMessage;
-  }
-  
-  loadLocalizedText();
-  
+document.getElementById('expandAllBtn').addEventListener('click', () => {
+  chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+    if (tabs[0]) {
+      chrome.tabs.sendMessage(tabs[0].id, { action: 'expandAll' });
+    }
+  });
+});
+
+loadLocalizedText();
