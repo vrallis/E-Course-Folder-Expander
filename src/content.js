@@ -12,11 +12,15 @@ function handleFolderExpansion(folder) {
     return;
   }
 
+  const folderLink = folder.querySelector('.activityinstance a');
+  if (!folderLink) return;
+  const folderUrl = folderLink.getAttribute('href');
+
   const loadingElement = document.createElement('div');
   loadingElement.textContent = chrome.i18n.getMessage('loadingText');
   folder.after(loadingElement);
 
-  fetch(folder.getAttribute('data-url'))
+  fetch(folderUrl)
     .then(response => response.text())
     .then(data => {
       loadingElement.remove();
@@ -26,7 +30,7 @@ function handleFolderExpansion(folder) {
 
       const parser = new DOMParser();
       const doc = parser.parseFromString(data, 'text/html');
-      const fileLinks = doc.querySelectorAll('.ygtvitem a');
+      const fileLinks = doc.querySelectorAll('.fp-filename-icon a');
 
       if (fileLinks.length === 0) {
         newFolderContainer.textContent = chrome.i18n.getMessage('noFilesMessage');
@@ -35,7 +39,7 @@ function handleFolderExpansion(folder) {
           const fileEntry = document.createElement('div');
           const linkElement = document.createElement('a');
           linkElement.setAttribute('href', fileLinkElement.getAttribute('href'));
-          linkElement.textContent = fileLinkElement.textContent;
+          linkElement.textContent = fileLinkElement.textContent.trim();
           fileEntry.appendChild(linkElement);
           newFolderContainer.appendChild(fileEntry);
         });
@@ -66,7 +70,13 @@ document.querySelectorAll('.activity.folder.modtype_folder').forEach(folder => {
   expandButton.addEventListener('click', function () {
     handleFolderExpansion(folder);
   });
-  folder.prepend(expandButton);
+
+  const activityInstance = folder.querySelector('.activityinstance');
+  if (activityInstance) {
+    activityInstance.appendChild(expandButton);
+  } else {
+    folder.prepend(expandButton);
+  }
 });
 
 chrome.runtime.onMessage.addListener((message) => {
